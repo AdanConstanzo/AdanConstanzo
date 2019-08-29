@@ -10,4 +10,4 @@ jobs:
                 command: npm install
             - deploy:
                 name: digital-ocean
-                command: ssh -o "StrictHostKeyChecking no" user@hostname "cd ~/AdanConstanzo; git pull; npm install;"
+                command: ssh -o "StrictHostKeyChecking no" danconable@104.248.64.221 "cd ~/AdanConstanzo; git pull; npm install;"
