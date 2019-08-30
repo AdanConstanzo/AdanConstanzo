@@ -9,11 +9,15 @@ jobs:
                 name: install-dependencies
                 command: npm install
     build-live:
+        machine:
+            enabled: true
         steps:
             - deploy:
                 name: digital-ocean-live
                 command: ssh -o "StrictHostKeyChecking no" danconable@104.248.64.221 "cd ~/AdanConstanzo; git pull; npm install;"
     build-stage:
+        machine:
+            enabled: true
         steps:
             - deploy:
                 name: digital-ocean-stage
