@@ -1,6 +1,6 @@
 version: 2
 jobs:
-    build-live:
+    build:
         branches:
             only:
                 - master
@@ -14,7 +14,7 @@ jobs:
             - deploy:
                 name: digital-ocean
                 command: ssh -o "StrictHostKeyChecking no" danconable@104.248.64.221 "cd ~/AdanConstanzo; git pull; npm install;"
-    build-stage:
+    build:
         branches:
             only:
                 - stage
