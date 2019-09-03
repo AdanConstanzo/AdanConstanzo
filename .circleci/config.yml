@@ -21,7 +21,7 @@ jobs:
         steps:
             - deploy:
                 name: digital-ocean-stage
-                command: ssh -o "StrictHostKeyChecking no" danconable@104.248.64.221 "cd ~/AdanConstanzoStage; git checkout stage; git pull origin stage; npm install;"
+                command: ssh -o "StrictHostKeyChecking no" danconable@104.248.64.221 "cd ~/AdanConstanzoStage; git checkout stage; git pull origin stage; npm install; npm run build;"
 
 workflows:
   version: 2
