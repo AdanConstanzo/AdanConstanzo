@@ -21,7 +21,7 @@ jobs:
         steps:
             - deploy:
                 name: digital-ocean-stage
-                command: ssh -o "StrictHostKeyChecking no" danconable@104.248.64.221 "source ~/.bashrc; echo 'export NVM_DIR=$HOME/.nvm' >> $BASH_ENV; echo 'source $NVM_DIR/nvm.sh' >> $BASH_ENV; curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.5/install.sh | bash; export NVM_DIR="$HOME/.nvm"; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"; [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"; node -v; nvm install v10; node -v; nvm alias default v10; node -v;"
+                command: ssh -o "StrictHostKeyChecking no" danconable@104.248.64.221 "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash; export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"; command -v nvm;"
                 # command: ssh -o "StrictHostKeyChecking no" danconable@104.248.64.221 "nvm use 10.16.3; cd ~/AdanConstanzoStage; git checkout stage; git pull origin stage; npm install; npm run build;"
 
 workflows:
