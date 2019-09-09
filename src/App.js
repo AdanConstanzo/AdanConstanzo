@@ -1,27 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import TerminalText from './components/terminal-text';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>Adan was here</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state ={
+  };
+
+  render(){
+    return(
+      <div className="root" >
+        <header className="intro-header color-secondary bg-color-primary">
+          <div className="header__info" >
+            <h1>Passionate about</h1>
+            <TerminalText />
+          </div>
+          <div className="arrow-down bg-color-secondary"></div>
+        </header>
+        <section style={{ height: "200px" }} className="bg-color-secondary" >
+
+        </section>
+      </div>
+    )
+  }
 }
-
+App.propTypes = {
+};
 export default App;
+
