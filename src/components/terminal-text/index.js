@@ -4,24 +4,20 @@ import './terminal-text.css';
 
 class TerminalText extends React.Component {
 	state ={
-		descriptions : ["Web Apps", "Game Dev", "App Dev", "Automations", "Servers", "ReactJS", "NodeJS", "AI/ML/DL", "Tensor Flow", "Javascript", "CSS"],
 		indexArray: 0,
-		speed: 2000,
-		deleteSpeed: 1000,
-		breakBetween: 1000,
 		characterIndex: 0,
-		random: false
 	};
 	componentDidMount() {
-		this.typeAnimation();
+		setTimeout(() => this.typeAnimation(), this.props.initialStart);
 	}
 
 	typeAnimation = () => {
-		const { indexArray, descriptions, speed } = this.state;
+		const { descriptions, typingSpeed } = this.props;
+		const { indexArray } = this.state;
 		const doc = document.getElementById("terminal-text").children[0];
 		doc.style.width = `0%`;
 		const animation = setInterval(() => {
-			const { indexArray, descriptions, characterIndex } = this.state;
+			const { indexArray, characterIndex } = this.state;
 			doc.style.width = `${(100/descriptions[indexArray%descriptions.length].length) * characterIndex}%`;
 			this.setState({ characterIndex: characterIndex + 1 });
 			if (characterIndex === descriptions[indexArray%descriptions.length].length) {
@@ -29,35 +25,38 @@ class TerminalText extends React.Component {
 				setTimeout(() => {
 					this.setState({ characterIndex: 0});
 					this.deleteAnimation();
-				}, this.state.breakBetween);
+				}, this.props.breakBetween);
 			}
-		}, speed / descriptions[indexArray%descriptions.length].length);
+		}, typingSpeed / descriptions[indexArray%descriptions.length].length);
 	}
 
 	deleteAnimation = () => {
-		const { indexArray, descriptions, deleteSpeed } = this.state;
+		const { descriptions, deleteSpeed } = this.props;
+		const { indexArray } = this.state;
 		const animation = setInterval(() => {
-			const { indexArray, descriptions, characterIndex } = this.state;
+			const { indexArray, characterIndex } = this.state;
 			const doc = document.getElementById("terminal-text").children[0];
 			doc.style.width = `${100 - (100/descriptions[indexArray%descriptions.length].length) * characterIndex}%`;
 			this.setState({ characterIndex: characterIndex + 1 });
 			if (characterIndex === descriptions[indexArray%descriptions.length].length) {
 				clearInterval(animation);
 				setTimeout(() => {
-					const { descriptions, random, indexArray  } = this.state;
+					const { indexArray  } = this.state;
+					const { random } = this.props;
 					const newIndex = random ? Math.floor(Math.random() * descriptions.length ) : indexArray + 1
 					this.setState({ indexArray: newIndex, characterIndex: 0});
 					this.typeAnimation();
-				}, this.state.breakBetween);
+				}, this.props.breakBetween);
 			}
 		}, deleteSpeed / descriptions[indexArray%descriptions.length].length);
 	}
 
 	render(){
-		const { descriptions, indexArray } = this.state;
+		const { indexArray } = this.state;
+		const { terminalPath, descriptions } = this.props;
 		return(
 			<div className="terminal-text">
-				<p>@adan>&nbsp;</p>
+				<p>{terminalPath}</p>
 				<div id="terminal-text" className="terminal-text__typing"><span>{descriptions[indexArray%descriptions.length]}</span></div>
 			</div>
 		)

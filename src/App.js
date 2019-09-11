@@ -11,8 +11,16 @@ class App extends React.Component {
       <div className="root" >
         <header className="intro-header color-secondary bg-color-primary">
           <div className="header__info" >
-            <h1>Passionate about</h1>
-            <TerminalText />
+            <h1>Hi!</h1>
+            <TerminalText 
+              terminalPath="@adan>&nbsp;"
+              deleteSpeed={1000}
+              breakBetween={1000}
+              initialStart={1000}
+              typingSpeed={2000}
+              randmonIndexing={false}
+              descriptions={["Web Apps", "Game Dev", "App Dev", "Automations", "Servers", "ReactJS", "NodeJS", "AI/ML/DL", "Tensor Flow", "Javascript", "CSS"]}
+            />
           </div>
           <div className="arrow-down bg-color-secondary"></div>
         </header>
