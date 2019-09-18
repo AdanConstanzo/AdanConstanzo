@@ -65,7 +65,10 @@ body {
   background-color: #11ABB0
 }
 
-
+/* Footer */
+footer img:hover, footer a:hover img {
+  filter: invert(47%) sepia(95%) saturate(655%) hue-rotate(140deg) brightness(91%) contrast(87%);
+}
 
 /* mobile large */
 @media screen and (min-width: 480px) {
@@ -88,7 +91,7 @@ body {
 
   header > nav > ul > li {
     padding: 2rem;
-    font-size: 3rem;
+    font-size: 2.5rem;
     min-width: 17rem;
     text-align: center;
   }
@@ -160,7 +163,7 @@ body {
     opacity: 1;
   }
 
-  /*================ About Me ================*/
+  /*================ About Me 1024 ================*/
   .about-me__section {
     display: flex;
     justify-content: center;
@@ -207,30 +210,77 @@ body {
     text-align: center;
     font-size: 3rem;
   }
-    /*================ Projects ================*/
-    .projects__h2 {
+    /*================ Projects 1024 ================*/
+    .projects__h2, .footer__h2, .blogs__h2 {
+      line-height: 1;
       font-size: 4rem;
       text-align: center;
-      padding: 3rem 0;
+      padding-bottom: 5rem;
     }
     .projects__wrapper {
       display: grid;
       margin: 0 auto;
       width: 70vw;
-      grid-template-columns: auto auto auto;
+      grid-template-columns: auto auto auto auto;
       grid-row-gap: 3rem;
       padding-bottom: 3rem;
     }
     .projects__wrapper > div > img {
       display: block;
       border-radius: 2.5rem;
-      width: 20rem;
+      width: 15rem;
       margin: 0 auto;
+    }
+
+    /*================ Blogs 1024 ================*/
+    .blogs_wrapper {
+      display: grid;
+      margin: 0 auto;
+      width: 70vw;
+      grid-template-columns: auto auto auto auto;
+      grid-row-gap: 3rem;
+      padding-bottom: 3rem;
+    }
+
+    .blogs_wrapper > div > img {
+      display: block;
+      margin: 0 auto;
+      border-radius: 2.5rem;
+      width: 15rem;
+    }
+
+    /*================ Footer 1024 ================*/
+    .footer__icon__wrapper {
+      margin: 0 auto;
+      padding-bottom: 5rem;
+      width: 60vw;
+      display: flex;
+      justify-content: space-evenly;
+      text-align: center;
+    }
+
+    .footer__icon__wrapper > div {
+      width: 220px;
+    }
+
+    .footer__icon__wrapper a, .footer__icon__wrapper a:visited {
+      font-size: 2rem;
+      color: black;
+      text-decoration: none;
+    }
+    .footer__icon__wrapper a:hover {
+      color: #11ABB0;
+    }
+    
+    /*================ Section & Footer 1024 ================*/
+    
+    section, footer {
+      padding: 5rem 0;
     }
 }
 /* desktop HD */
 @media screen and (min-width: 1420px) {
-  /*================ About Me ================*/
+  /*================ About Me 1420 ================*/
   .about-me__img--div {
     height: 30vw;
     width: 30vw;
@@ -252,10 +302,10 @@ body {
   .about-me__p {
     font-size: 2.5rem;
   }
-  /*================ Projects ================*/
-  .projects__h2 {
-    font-size: 5rem;
-    padding: 5rem 0;
+  /*================ Projects 1420 ================*/
+  .projects__h2, .footer__h2, .blogs__h2 {
+    font-size: 3.5rem;
+    padding-bottom: 10rem;
   }
 
   .projects__wrapper {
@@ -264,6 +314,23 @@ body {
   }
 
   .projects__wrapper > div > img {
-    width: 30rem;
+    width: 20rem;
+  }
+  
+  /*================ Blogs 1420 ================*/
+  
+  .blogs_wrapper {
+    grid-template-columns: auto auto auto auto;
+    grid-row-gap: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .blogs_wrapper > div > img {
+    width: 20rem;
+  }
+
+  /*================ Section & Footer 1420 ================*/
+  section, footer {
+    padding: 10rem 0;
   }
 }
