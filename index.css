@@ -1,0 +1,336 @@
+.debug {
+  background-color: orange;
+}
+
+body {
+  margin: 0;
+  font-family: 'Titillium Web', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* This is our hard reset! */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; 
+}
+
+html {
+  font-size: 62.5%; 
+}
+
+body {
+  
+  box-sizing: border-box; 
+}
+
+/*================ Colors ================*/
+.color-primary {
+  color: #2B2B2B;
+}
+
+.bg-color-primary {
+  background-color: #2B2B2B;
+}
+
+.color-primary-light {
+  color: #EBEEEE;
+}
+
+.bg-color-primary-light {
+  background-color: #EBEEEE;
+}
+
+.color-primary-lightest {
+  color: #fff;
+}
+
+.bg-color-primary-lightest {
+  color: #fff;
+}
+
+.color-secondary {
+  color: #11ABB0
+}
+
+.bg-color-secondary {
+  background-color: #11ABB0
+}
+
+/* Footer */
+footer img:hover, footer a:hover img {
+  filter: invert(47%) sepia(95%) saturate(655%) hue-rotate(140deg) brightness(91%) contrast(87%);
+}
+
+/* mobile large */
+@media screen and (min-width: 480px) {
+
+}
+/* tablet */
+@media screen and (min-width: 768px) {
+
+}
+/* desktop (laptops) */
+@media screen and (min-width: 1024px) {
+  /*================ Nav ================*/
+  header nav > ul {
+    list-style-type: none;
+    width: 90vw;
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+  }
+
+  header > nav > ul > li {
+    padding: 2rem;
+    font-size: 2.5rem;
+    min-width: 17rem;
+    text-align: center;
+  }
+
+  header > nav > ul > li:hover {
+    color: #11ABB0;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  /*================ Header ================*/
+
+  header {
+    color: white;
+    /* background-image */
+    background-image: url('assets/images/header-image-dhd-2-min.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #15151B;
+    width: 100vw;
+    height: 100vh;
+  }
+  .header-info{
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+  }
+
+  .header-info__h1 {
+    font-size: 6rem;
+  }
+
+  .header-info__h2 {
+    font-size: 3rem;
+  }
+
+
+  .arrow-down {
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    transform: translateX(-50%);
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .arrow-down__icon {
+    position: absolute;
+    height: 5rem;
+    width: 5rem;
+    z-index: 1; 
+  }
+
+  .arrow-down__icon:hover {
+    opacity: 0;
+  }
+
+  .arrow-down__icon + img {
+    position: absolute;
+    height: 5rem;
+    width: 5rem;
+    opacity: 0;
+  }
+
+  .arrow-down__icon:hover + img {
+    opacity: 1;
+  }
+
+  /*================ About Me 1024 ================*/
+  .about-me__section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 2rem 10vw;
+  }
+  .about-me__img--div {
+    width: 30vw;
+    height: 27rem;
+    position: relative;
+  }
+  .about-me__img {
+    border-radius: 8rem;
+    width: 30vw;
+    max-width: 25rem;
+    height: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  .about-me {
+    width: 50vw;
+    height: 100%;
+  }
+  
+  .about-me__h2 {
+    text-align: center;
+    font-size: 3rem;
+  }
+  
+  .about-me__p {
+    font-size: 2rem;
+    padding-bottom: 2rem;
+    max-width: 60rem;
+    margin: 0 auto;
+  }
+  
+  .about-me__h3 {
+    text-align: center;
+    font-size: 3rem;
+  }
+    /*================ Projects 1024 ================*/
+    .projects__h2, .footer__h2, .blogs__h2 {
+      line-height: 1;
+      font-size: 4rem;
+      text-align: center;
+      padding-bottom: 5rem;
+    }
+    .projects__wrapper {
+      display: grid;
+      margin: 0 auto;
+      width: 70vw;
+      grid-template-columns: auto auto auto auto;
+      grid-row-gap: 3rem;
+      padding-bottom: 3rem;
+    }
+    .projects__wrapper > div > img {
+      display: block;
+      border-radius: 2.5rem;
+      width: 15rem;
+      margin: 0 auto;
+    }
+
+    /*================ Blogs 1024 ================*/
+    .blogs_wrapper {
+      display: grid;
+      margin: 0 auto;
+      width: 70vw;
+      grid-template-columns: auto auto auto auto;
+      grid-row-gap: 3rem;
+      padding-bottom: 3rem;
+    }
+
+    .blogs_wrapper > div > img {
+      display: block;
+      margin: 0 auto;
+      border-radius: 2.5rem;
+      width: 15rem;
+    }
+
+    /*================ Footer 1024 ================*/
+    .footer__icon__wrapper {
+      margin: 0 auto;
+      padding-bottom: 5rem;
+      width: 60vw;
+      display: flex;
+      justify-content: space-evenly;
+      text-align: center;
+    }
+
+    .footer__icon__wrapper > div {
+      width: 220px;
+    }
+
+    .footer__icon__wrapper a, .footer__icon__wrapper a:visited {
+      font-size: 2rem;
+      color: black;
+      text-decoration: none;
+    }
+    .footer__icon__wrapper a:hover {
+      color: #11ABB0;
+    }
+    
+    /*================ Section & Footer 1024 ================*/
+    
+    section, footer {
+      padding: 5rem 0;
+    }
+}
+/* desktop HD */
+@media screen and (min-width: 1420px) {
+  /*================ About Me 1420 ================*/
+  .about-me__img--div {
+    height: 30vw;
+    width: 30vw;
+  }
+
+  .about-me__img {
+    width: 30vw;
+    max-width: 35rem;
+  }
+
+  .about-me__h2 {
+    font-size: 4rem;
+  }
+
+  .about-me {
+    width: 40vw;
+  }
+
+  .about-me__p {
+    font-size: 2.5rem;
+  }
+  /*================ Projects 1420 ================*/
+  .projects__h2, .footer__h2, .blogs__h2 {
+    font-size: 3.5rem;
+    padding-bottom: 10rem;
+  }
+
+  .projects__wrapper {
+    grid-row-gap: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .projects__wrapper > div > img {
+    width: 20rem;
+  }
+  
+  /*================ Blogs 1420 ================*/
+  
+  .blogs_wrapper {
+    grid-template-columns: auto auto auto auto;
+    grid-row-gap: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .blogs_wrapper > div > img {
+    width: 20rem;
+  }
+
+  /*================ Section & Footer 1420 ================*/
+  section, footer {
+    padding: 10rem 0;
+  }
+}
