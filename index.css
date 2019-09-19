@@ -95,10 +95,14 @@ header {
 
 .header-info__h1 {
   font-size: 5rem;
+  backface-visibility: visible !important;
+  animation: 1s linear 0s fadeInLeft;
 }
 
 .header-info__h2 {
   font-size: 3rem;
+  opacity: 0;
+  animation: 2s linear 1s flipInX forwards;
 }
 
 .arrow-down {
@@ -209,6 +213,8 @@ header nav {
   width: 15rem;
 }
 
+/*================ Section & Footer ================*/
+
 section, footer {
   padding: 3rem 0;
 }
@@ -240,6 +246,47 @@ section, footer {
   color: #11ABB0;
 }
 
+/*================ Animations ================*/
+@keyframes flipInX {
+  from {
+    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  40% {
+    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    animation-timing-function: ease-in;
+  }
+
+  60% {
+    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    opacity: 1;
+  }
+
+  80% {
+    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+    opacity: 1;
+  }
+
+  to {
+    transform: perspective(400px);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 /* medium size phone */
 @media screen and (min-width: 350px) {
 
@@ -251,6 +298,9 @@ section, footer {
 }
 
 @media screen and (min-width: 530px) {
+
+  /*================ Footer 530 ================*/
+
   .footer__icon__wrapper {
     justify-content: space-evenly;
     flex-direction: row;
@@ -289,6 +339,8 @@ section, footer {
     padding: 0;
   }
 
+  /*================ Footer 768 ================*/
+  
   .footer__icon__wrapper {
     margin: 0 auto;
     padding-bottom: 5rem;
