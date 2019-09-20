@@ -83,4 +83,37 @@ window.onload = (function() {
 	var textText1 = new TerminalText(texts, terminalText);
 	textText1.typeAnimation();
 
+	var elements;
+  var windowHeight;
+
+  function init() {
+    elements = document.querySelectorAll('.hidden');
+    windowHeight = window.innerHeight;
+  }
+
+  function checkPosition() {
+    for (var i = 0; i < elements.length; i++) {
+			(function() {
+				var element = elements[i];
+				var positionFromTop = elements[i].getBoundingClientRect().top;
+				var animation = JSON.parse(element.getAttribute('data-animation'));
+				if (positionFromTop - windowHeight <= 0 && animation.delayInit === false) {
+					setTimeout(function() {
+						console.log(element)
+						element.classList.remove('hidden');
+						element.classList.add(animation.animation);
+					}, animation.delayTime);
+					animation.delayInit = true;
+					element.setAttribute('data-animation', JSON.stringify(animation));
+				}
+			})();
+    }
+  }
+
+  window.addEventListener('scroll', checkPosition);
+  window.addEventListener('resize', init);
+
+  init();
+  checkPosition();
+
 })();
