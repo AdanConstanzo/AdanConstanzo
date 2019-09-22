@@ -81,17 +81,18 @@ window.onload = (function() {
 	var texts = ["Web Apps", "Game Dev", "App Dev", "Automation", "Servers", "ReactJS", "NodeJS", "AI/ML/DL", "Tensor Flow", "Javascript", "CSS"];
 	var terminalText = document.getElementById("terminal-text").children[0];
 	var textText1 = new TerminalText(texts, terminalText);
-	textText1.typeAnimation();
 
 	var elements;
   var windowHeight;
 
   function init() {
-    elements = document.querySelectorAll('.hidden');
+		elements = document.querySelectorAll('.hidden');
     windowHeight = window.innerHeight;
   }
 
   function checkPosition() {
+		// enables animations based on data-animation tag
+		// data-animation='{ "animation": "animation-jump", "delayInit": false, "delayTime": 500 }'
     for (var i = 0; i < elements.length; i++) {
 			(function() {
 				var element = elements[i];
@@ -99,18 +100,113 @@ window.onload = (function() {
 				var animation = JSON.parse(element.getAttribute('data-animation'));
 				if (positionFromTop - windowHeight <= 0 && animation.delayInit === false) {
 					setTimeout(function() {
-						console.log(element)
 						element.classList.remove('hidden');
 						element.classList.add(animation.animation);
+						if (animation.terminalTextInit) {
+							textText1.typeAnimation();
+						}
 					}, animation.delayTime);
 					animation.delayInit = true;
 					element.setAttribute('data-animation', JSON.stringify(animation));
 				}
 			})();
-    }
+		}
   }
 
-  window.addEventListener('scroll', checkPosition);
+	/* checks to see if element is withing viewport */
+	function isElementInViewport(el) {
+		var rect = el.getBoundingClientRect();
+		return rect.bottom < 910;
+	}
+
+	/**
+	 * Checks to see if div is within viewing distance
+	 * and initials animations.
+	 * @listens scroll:checkProjectScroll
+	 * @param {DOM} parentDiv Reference to parent div to check if within viewport.
+	 * @param {string} elementClassName Class name for element searching / appending.
+	 * @return {function} Returning a function for closure purposes.
+	 */
+	/**
+	 * Required HTML structure
+	 * <section id="[parentDiv]">
+	 * 	<h2 class="[elementClassName]" data-animation={}</h2>
+	 * 	<div class="[elementClassName]">
+	 * 		<div class="[elementClassName]-div">
+	*/
+	function checkProjectScroll(selfObj) {
+		// returning function for closure.
+		return function() {
+			// get reference to parentDiv
+			var parentDiv = document.getElementById(selfObj.sectionId);
+			// checks if div is within viewport.
+			var check = isElementInViewport(parentDiv);
+			if (check) {
+				// grab all instances of class
+				var elements = document.querySelectorAll('.' + selfObj.blocksClass);
+				// looping through all elements.
+				for (var i = 0; i < elements.length; i++) {
+					// binds var i.
+					(function() {
+						var element = elements[i];
+						var animation;
+						// if element has an animation play it, 
+						// else probably blocks of projects/blogs
+						if (element.getAttribute('data-animation')) {
+							// standard animation bit.
+							animation = JSON.parse(element.getAttribute('data-animation'));
+							if (animation.delayInit === false) {
+								setTimeout(function() {
+									element.classList.remove(selfObj.blocksClass);
+									element.classList.add(animation.animation);
+								}, animation.delayTime);
+							}
+							animation.delayInit = true;
+							element.setAttribute('data-animation', JSON.stringify(animation));
+						} else {
+							// looping through all project/blog items
+							for (var j = 0; j < element.children.length; j++) {
+								// binding j
+								(function() {
+									var animation = JSON.parse(element.children[j].getAttribute('data-animation'));
+									if (animation.delayInit === false) {
+										setTimeout(function(num, animationVal) {
+											// removing opacity.
+											element.children[num].classList.remove(selfObj.blocksClass + '-div');
+											// adding animation.
+											element.children[num].classList.add(animationVal.animation);
+										}, 1000 + animation.delayBetween *j , j, animation); // increments time delay by 500ms
+									}
+									animation.delayInit = true;
+									element.children[j].setAttribute('data-animation', JSON.stringify(animation));
+								})();
+							}
+							element.classList.remove(selfObj.blocksClass);
+						}
+						// once loops reaches max, remove listener.
+						if (i === elements.length -1) {
+							window.removeEventListener('scroll', selfObj.func);
+						}
+					})();
+				}
+				
+			}
+		}
+	}
+	// variable instance of listener so we can reference to remove later.
+	var projectScrollEvent = { sectionId: 'projects', blocksClass: 'projects-hidden' }
+	projectScrollEvent.func = checkProjectScroll(projectScrollEvent);
+	var blogsScrollEvent = { sectionId: 'blogs', blocksClass: 'blogs-hidden' }
+	blogsScrollEvent.func = checkProjectScroll(blogsScrollEvent);
+	var contactMe = { sectionId: 'contact', blocksClass: 'contact-hidden' }
+	contactMe.func = checkProjectScroll(contactMe);
+
+	// setting our listeners
+	window.addEventListener('scroll', projectScrollEvent.func);
+	window.addEventListener('scroll', blogsScrollEvent.func);
+	window.addEventListener('scroll', contactMe.func);
+	
+	window.addEventListener('scroll', checkPosition);
   window.addEventListener('resize', init);
 
   init();
