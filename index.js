@@ -196,15 +196,12 @@ window.onload = (function() {
 	// variable instance of listener so we can reference to remove later.
 	var projectScrollEvent = { sectionId: 'projects', blocksClass: 'projects-hidden' }
 	projectScrollEvent.func = checkProjectScroll(projectScrollEvent);
-	var blogsScrollEvent = { sectionId: 'blogs', blocksClass: 'blogs-hidden' }
-	blogsScrollEvent.func = checkProjectScroll(blogsScrollEvent);
-	var contactMe = { sectionId: 'contact', blocksClass: 'contact-hidden' }
-	contactMe.func = checkProjectScroll(contactMe);
+	// var blogsScrollEvent = { sectionId: 'blogs', blocksClass: 'blogs-hidden' }
+	// blogsScrollEvent.func = checkProjectScroll(blogsScrollEvent);
 
 	// setting our listeners
 	window.addEventListener('scroll', projectScrollEvent.func);
-	window.addEventListener('scroll', blogsScrollEvent.func);
-	window.addEventListener('scroll', contactMe.func);
+	// window.addEventListener('scroll', blogsScrollEvent.func);
 	
 	window.addEventListener('scroll', checkPosition);
   window.addEventListener('resize', init);
