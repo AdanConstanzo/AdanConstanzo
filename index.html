@@ -13,25 +13,25 @@
 </head>
 
 <body>
-	<header>
-		<nav>
+	<header id="home">
+		<nav id="nav">
 			<ul>
-				<li>Home</li>
-				<li>About Me</li>
-				<li>Projects</li>
-				<li>Blogs</li>
-				<li>Contact</li>
+				<li data-ref="home" >Home</li>
+				<li data-ref="about-me" >About Me</li>
+				<li data-ref="projects" >Projects</li>
+				<li data-ref="blogs" >Blogs</li>
+				<li data-ref="contact" >Contact</li>
 			</ul>
 		</nav>
 		<div class="header-info">
 			<h1 class="header-info__h1 fadeInLeft">I'm Adan Constanzo!</h1>
 			<h2 class="header-info__h2 flipInX">Full-Stack Web Developer</h2>
 		</div>
-		<div class="arrow-down">
-			<img src="assets/images/Subtract.svg" alt="triangle with all three sides equal" height="50px" width="50px" />
+		<div id="arrow" class="arrow-down">
+			<img src="assets/images/Subtract.svg" alt="Arrow down image button." height="50px" width="50px" />
 		</div>
 	</header>
-	<section class="about-me__section bg-color-primary">
+	<section id="about-me" class="about-me__section bg-color-primary">
 		<div class="about-me__img--div">
 			<img class="about-me__img hidden"
 				data-animation='{ "animation": "animation-jump", "delayInit": false, "delayTime": 500 }'
@@ -81,10 +81,10 @@
 			</div>
 		</div>
 	</section>
-	<section class="content bg-color-primary blogs">
-		<h2 class="projects__h2 color-primary-light">Check Out Some Of My Blogs</h2>
-		<div class="grid">
-			<figure class="effect-sadie">
+	<section id="blogs" class="content bg-color-primary blogs">
+		<h2 class="blogs__h2 color-primary-light blogs-hidden" data-animation='{ "animation": "animation-fadeIn", "delayInit": false, "delayTime": 500 }'>Check Out Some Of My Blogs</h2>
+		<div class="grid blogs-hidden">
+			<figure class="effect-sadie blogs-hidden-div" data-animation='{ "animation": "animation-fadeIn", "delayInit": false, "delayBetween": 500 }'122>
 				<img src="assets/images/the-feww.png" alt="the f.e.w.w." />
 				<figcaption>
 					<h2>Senior Design Project: <span>The F.E.W.W</span></h2>
@@ -92,17 +92,17 @@
 					<!-- <a href="#">View more</a> -->
 				</figcaption>
 			</figure>
-			<figure class="effect-sadie">
+			<figure class="effect-sadie blogs-hidden-div" data-animation='{ "animation": "animation-fadeIn", "delayInit": false, "delayBetween": 500 }'122>
 				<img src="assets/images/android-min.jpg" alt="img14" />
 				<figcaption>
-					<h2 class="color-black">Android App Development<br><span>Never Have I Ever</span></h2>
+					<h2>Android App Development<br><span>Never Have I Ever</span></h2>
 					<p>Learning android development!</p>
 					<a href="#">View more</a>
 				</figcaption>
 			</figure>
 		</div>
 	</section>
-	<footer class="bg-color-primary-light">
+	<footer id="contact" class="bg-color-primary-light">
 		<h2 class="footer__h2 color-primary" data-animation='{ "animation": "animation-fadeIn", "delayInit": false }'>
 			Contact Me!</h2>
 		<div class="footer__icon__wrapper">

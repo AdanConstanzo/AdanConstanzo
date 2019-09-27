@@ -1,5 +1,5 @@
-window.onload = (function() {
-	
+window.onload = (function () {
+
 	/*
 	***************** TerminalTyping Animation ***************** 
 	* This animation is done by specific css properties!
@@ -8,7 +8,7 @@ window.onload = (function() {
 	* We then set the width as time goes with setInterval,
 	* which mimics the typing effect.
 	* The blinking cursor is done via CSS animation.
-	*/ 
+	*/
 	function TerminalText(words, textDOM, options) {
 		this.words = words;
 		this.textDOM = textDOM;
@@ -17,7 +17,7 @@ window.onload = (function() {
 		this.textDOM.innerText = this.words[this.indexArray];
 		if (options) {
 			var objectKeys = Object.keys(options);
-			var objectKeysLength = Object.keys(options).length;	
+			var objectKeysLength = Object.keys(options).length;
 			for (var i = 0; i < objectKeysLength; i++) {
 				TerminalText.prototype.options[objectKeys[i]] = options[objectKeys[i]];
 			}
@@ -30,37 +30,37 @@ window.onload = (function() {
 		initialStart: 1000,
 		typingSpeed: 2000,
 		random: false
-	}	
-	TerminalText.prototype.typeAnimation = function() {
+	}
+	TerminalText.prototype.typeAnimation = function () {
 		this.textDOM.style.width = '0%';
 		var _TerminalText = this.textDOM.innerText.trim();
 		var _TerminalTextLength = _TerminalText.length;
-		var _typeSpeed = this.options.typingSpeed / _TerminalTextLength ;
-		var animation = setInterval(function(self) {
+		var _typeSpeed = this.options.typingSpeed / _TerminalTextLength;
+		var animation = setInterval(function (self) {
 			self.textDOM.style.width = 100 / _TerminalTextLength * self.counter + '%';
 			self.counter += 1;
 			if (self.counter > _TerminalTextLength) {
 				clearInterval(animation);
-				setTimeout(function(_self) {
+				setTimeout(function (_self) {
 					_self.counter = 0;
 					_self.deleteAnimation();
 				}, self.options.breakBetween, self);
 			}
 		}, _typeSpeed, this);
 	}
-	TerminalText.prototype.deleteAnimation = function() {
+	TerminalText.prototype.deleteAnimation = function () {
 		var _TerminalText = this.textDOM.innerText.trim();
 		var _TerminalTextLength = _TerminalText.length;
-		var _typeSpeed = this.options.typingSpeed / _TerminalTextLength ;
-		var animation = setInterval(function(self) {
-			self.textDOM.style.width = 100 - (100/_TerminalTextLength) * self.counter +'%';
-			self.counter ++;
+		var _typeSpeed = this.options.typingSpeed / _TerminalTextLength;
+		var animation = setInterval(function (self) {
+			self.textDOM.style.width = 100 - (100 / _TerminalTextLength) * self.counter + '%';
+			self.counter++;
 			if (self.counter > _TerminalTextLength) {
 				clearInterval(animation);
-				setTimeout(function(_self) {
-					_self.indexArray ++;
+				setTimeout(function (_self) {
+					_self.indexArray++;
 					var wordsLength = _self.words.length;
-					var newIndex = _self.options.random ? (Math.floor(Math.random() * _self.words.length )) % wordsLength : (_self.indexArray) % wordsLength;
+					var newIndex = _self.options.random ? (Math.floor(Math.random() * _self.words.length)) % wordsLength : (_self.indexArray) % wordsLength;
 					_self.textDOM.innerText = _self.words[newIndex];
 					_self.counter = 0;
 					_self.typeAnimation();
@@ -69,9 +69,9 @@ window.onload = (function() {
 		}, _typeSpeed, this);
 	}
 	/******* End of TerminalTypingText *******/
-	
+
 	// Not required but good to see
-	
+
 	/*
 	var terminalTextOptions = {
 		breakBetween: 5000,
@@ -83,23 +83,23 @@ window.onload = (function() {
 	var textText1 = new TerminalText(texts, terminalText);
 
 	var elements;
-  var windowHeight;
+	var windowHeight;
 
-  function init() {
+	function init() {
 		elements = document.querySelectorAll('.hidden');
-    windowHeight = window.innerHeight;
-  }
+		windowHeight = window.innerHeight;
+	}
 
-  function checkPosition() {
+	function checkPosition() {
 		// enables animations based on data-animation tag
 		// data-animation='{ "animation": "animation-jump", "delayInit": false, "delayTime": 500 }'
-    for (var i = 0; i < elements.length; i++) {
-			(function() {
+		for (var i = 0; i < elements.length; i++) {
+			(function () {
 				var element = elements[i];
 				var positionFromTop = elements[i].getBoundingClientRect().top;
 				var animation = JSON.parse(element.getAttribute('data-animation'));
 				if (positionFromTop - windowHeight <= 0 && animation.delayInit === false) {
-					setTimeout(function() {
+					setTimeout(function () {
 						element.classList.remove('hidden');
 						element.classList.add(animation.animation);
 						if (animation.terminalTextInit) {
@@ -111,13 +111,24 @@ window.onload = (function() {
 				}
 			})();
 		}
-  }
+	}
 
 	/* checks to see if element is withing viewport */
 	function isElementInViewport(el) {
 		var rect = el.getBoundingClientRect();
 		return rect.bottom < 910;
 	}
+
+	function isInViewport(elem) {
+		var bounding = elem.getBoundingClientRect();
+		// Only using bottom because blog div is too big to fit whole viewport.
+		return (
+			// bounding.top >= 0 &&
+			// bounding.left >= 0 &&
+			bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) 
+			// bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
+		);
+	};
 
 	/**
 	 * Checks to see if div is within viewing distance
@@ -136,18 +147,18 @@ window.onload = (function() {
 	*/
 	function checkProjectScroll(selfObj) {
 		// returning function for closure.
-		return function() {
+		return function () {
 			// get reference to parentDiv
 			var parentDiv = document.getElementById(selfObj.sectionId);
 			// checks if div is within viewport.
-			var check = isElementInViewport(parentDiv);
+			var check = isInViewport(parentDiv);
 			if (check) {
 				// grab all instances of class
 				var elements = document.querySelectorAll('.' + selfObj.blocksClass);
 				// looping through all elements.
 				for (var i = 0; i < elements.length; i++) {
 					// binds var i.
-					(function() {
+					(function () {
 						var element = elements[i];
 						var animation;
 						// if element has an animation play it, 
@@ -156,7 +167,7 @@ window.onload = (function() {
 							// standard animation bit.
 							animation = JSON.parse(element.getAttribute('data-animation'));
 							if (animation.delayInit === false) {
-								setTimeout(function() {
+								setTimeout(function () {
 									element.classList.remove(selfObj.blocksClass);
 									element.classList.add(animation.animation);
 								}, animation.delayTime);
@@ -167,15 +178,15 @@ window.onload = (function() {
 							// looping through all project/blog items
 							for (var j = 0; j < element.children.length; j++) {
 								// binding j
-								(function() {
+								(function () {
 									var animation = JSON.parse(element.children[j].getAttribute('data-animation'));
 									if (animation.delayInit === false) {
-										setTimeout(function(num, animationVal) {
+										setTimeout(function (num, animationVal) {
 											// removing opacity.
 											element.children[num].classList.remove(selfObj.blocksClass + '-div');
 											// adding animation.
 											element.children[num].classList.add(animationVal.animation);
-										}, 1000 + animation.delayBetween *j , j, animation); // increments time delay by 500ms
+										}, 1000 + animation.delayBetween * j, j, animation); // increments time delay by 500ms
 									}
 									animation.delayInit = true;
 									element.children[j].setAttribute('data-animation', JSON.stringify(animation));
@@ -184,29 +195,53 @@ window.onload = (function() {
 							element.classList.remove(selfObj.blocksClass);
 						}
 						// once loops reaches max, remove listener.
-						if (i === elements.length -1) {
+						if (i === elements.length - 1) {
 							window.removeEventListener('scroll', selfObj.func);
 						}
 					})();
 				}
-				
+
 			}
 		}
 	}
+
+	function smoothScroll(element) {
+		return function() {
+			element.scrollIntoView({ 
+				behavior: 'smooth',
+				block: 'center'
+			});
+		}
+	}
+	
+
 	// variable instance of listener so we can reference to remove later.
 	var projectScrollEvent = { sectionId: 'projects', blocksClass: 'projects-hidden' }
 	projectScrollEvent.func = checkProjectScroll(projectScrollEvent);
-	// var blogsScrollEvent = { sectionId: 'blogs', blocksClass: 'blogs-hidden' }
-	// blogsScrollEvent.func = checkProjectScroll(blogsScrollEvent);
+	var blogsScrollEvent = { sectionId: 'blogs', blocksClass: 'blogs-hidden' }
+	blogsScrollEvent.func = checkProjectScroll(blogsScrollEvent);
 
 	// setting our listeners
 	window.addEventListener('scroll', projectScrollEvent.func);
-	// window.addEventListener('scroll', blogsScrollEvent.func);
-	
-	window.addEventListener('scroll', checkPosition);
-  window.addEventListener('resize', init);
+	window.addEventListener('scroll', blogsScrollEvent.func);
 
-  init();
-  checkPosition();
+	window.addEventListener('scroll', checkPosition);
+	window.addEventListener('resize', init);
+
+	var scrollButton = document.getElementById('arrow');
+	scrollButton.addEventListener('click', smoothScroll(document.getElementById('about-me')));
+
+	var nav = document.getElementById('nav');
+	for (var i = 0; i < nav.children[0].children.length; i++) {
+		(function(){
+			var li = nav.children[0].children[i];
+			var attribute = li.getAttribute('data-ref');
+			li.addEventListener('click', smoothScroll(document.getElementById(attribute)));
+		})();
+	}
+	
+
+	init();
+	checkPosition();
 
 })();
