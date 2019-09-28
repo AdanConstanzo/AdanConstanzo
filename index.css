@@ -33,7 +33,7 @@ body {
   box-sizing: border-box; 
 }
 
-.hidden, .projects-hidden, .projects-hidden-div, .blogs-hidden, .blogs-hidden-div, .contact-hidden, .contact-hidden-div {
+.hidden, .about-me-hidden, .about-me-hidden-div, .projects-hidden, .projects-hidden-div, .blogs-hidden, .blogs-hidden-div, .contact-hidden, .contact-hidden-div {
   opacity: 0;
 }
 
@@ -91,6 +91,15 @@ header {
   overflow-y: hidden;
 }
 
+header .sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #2B2B2B;
+  z-index: 5;
+  animation: 0.4s linear fadeIn forwards;
+}
+
 .header-info{
   position: absolute;
   text-align: center;
@@ -136,9 +145,9 @@ header {
 }
 
 
-header nav {
-  /* display: none; */
-}
+/* header nav {
+  display: none;
+} */
 
 /*================ About Me ================*/
 
@@ -678,11 +687,15 @@ figure.effect-sadie:hover img {
     font-size: 2.5rem;
     min-width: 17rem;
     text-align: center;
+    -webkit-transition: bold 0.35s ease-in, color 0.35s ease-in;
+    -moz-transition: bold 0.35s ease-in, color 0.35s ease-in;
+    -o-transition: bold 0.35s ease-in, color 0.35s ease-in;
+    transition: bold 0.35s ease-in, color 0.35s ease-in;
   }
 
-  header > nav > ul > li:hover {
-    color: #11ABB0;
+  header > nav > ul > li:hover, header > nav > ul > li.active {
     cursor: pointer;
+    color: #11ABB0;
     font-weight: bold;
   }
 

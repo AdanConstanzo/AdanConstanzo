@@ -82,43 +82,6 @@ window.onload = (function () {
 	var terminalText = document.getElementById("terminal-text").children[0];
 	var textText1 = new TerminalText(texts, terminalText);
 
-	var elements;
-	var windowHeight;
-
-	function init() {
-		elements = document.querySelectorAll('.hidden');
-		windowHeight = window.innerHeight;
-	}
-
-	function checkPosition() {
-		// enables animations based on data-animation tag
-		// data-animation='{ "animation": "animation-jump", "delayInit": false, "delayTime": 500 }'
-		for (var i = 0; i < elements.length; i++) {
-			(function () {
-				var element = elements[i];
-				var positionFromTop = elements[i].getBoundingClientRect().top;
-				var animation = JSON.parse(element.getAttribute('data-animation'));
-				if (positionFromTop - windowHeight <= 0 && animation.delayInit === false) {
-					setTimeout(function () {
-						element.classList.remove('hidden');
-						element.classList.add(animation.animation);
-						if (animation.terminalTextInit) {
-							textText1.typeAnimation();
-						}
-					}, animation.delayTime);
-					animation.delayInit = true;
-					element.setAttribute('data-animation', JSON.stringify(animation));
-				}
-			})();
-		}
-	}
-
-	/* checks to see if element is withing viewport */
-	function isElementInViewport(el) {
-		var rect = el.getBoundingClientRect();
-		return rect.bottom < 910;
-	}
-
 	function isInViewport(elem) {
 		var bounding = elem.getBoundingClientRect();
 		// Only using bottom because blog div is too big to fit whole viewport.
@@ -129,7 +92,6 @@ window.onload = (function () {
 			// bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
 		);
 	};
-
 	/**
 	 * Checks to see if div is within viewing distance
 	 * and initials animations.
@@ -186,6 +148,9 @@ window.onload = (function () {
 											element.children[num].classList.remove(selfObj.blocksClass + '-div');
 											// adding animation.
 											element.children[num].classList.add(animationVal.animation);
+											if (animation.terminalTextInit) {
+												textText1.typeAnimation();
+											}
 										}, 1000 + animation.delayBetween * j, j, animation); // increments time delay by 500ms
 									}
 									animation.delayInit = true;
@@ -205,6 +170,9 @@ window.onload = (function () {
 		}
 	}
 
+	// Uses scrollIntoView to scroll element into view.
+	// Takes in the element as a param. 
+	// Returns a function for closure purposes (to add as event listener).
 	function smoothScroll(element) {
 		return function() {
 			element.scrollIntoView({ 
@@ -214,8 +182,25 @@ window.onload = (function () {
 		}
 	}
 	
+	// Navbar variables
+	var navbar = document.getElementById('nav');
+	var header = document.getElementById('home');
+	var headerHeight = header.clientHeight;
+
+	function addStickyNav() {
+		if (window.pageYOffset > headerHeight * 0.8) {
+			navbar.classList.add('sticky');
+		} else {
+			navbar.classList.remove('sticky');
+		}
+	}
+	
 
 	// variable instance of listener so we can reference to remove later.
+	var aboutMeEvent = { sectionId: 'about-me', blocksClass: 'about-me-hidden' }
+	aboutMeEvent.func = checkProjectScroll(aboutMeEvent);
+	
+	// aboutMeEvent.cb = textText1.typeAnimation
 	var projectScrollEvent = { sectionId: 'projects', blocksClass: 'projects-hidden' }
 	projectScrollEvent.func = checkProjectScroll(projectScrollEvent);
 	var blogsScrollEvent = { sectionId: 'blogs', blocksClass: 'blogs-hidden' }
@@ -224,9 +209,8 @@ window.onload = (function () {
 	// setting our listeners
 	window.addEventListener('scroll', projectScrollEvent.func);
 	window.addEventListener('scroll', blogsScrollEvent.func);
-
-	window.addEventListener('scroll', checkPosition);
-	window.addEventListener('resize', init);
+	window.addEventListener('scroll', aboutMeEvent.func);
+	window.addEventListener('scroll', addStickyNav);
 
 	var scrollButton = document.getElementById('arrow');
 	scrollButton.addEventListener('click', smoothScroll(document.getElementById('about-me')));
@@ -239,9 +223,5 @@ window.onload = (function () {
 			li.addEventListener('click', smoothScroll(document.getElementById(attribute)));
 		})();
 	}
-	
-
-	init();
-	checkPosition();
 
 })();
