@@ -16,7 +16,6 @@
 	<header id="home">
 		<nav id="nav">
 			<ul>
-				<li data-ref="home" >Home</li>
 				<li data-ref="about-me" >About Me</li>
 				<li data-ref="projects" >Projects</li>
 				<li data-ref="blogs" >Blogs</li>
@@ -33,25 +32,25 @@
 	</header>
 	<section id="about-me" class="about-me__section bg-color-primary">
 		<div class="about-me__img--div">
-			<img class="about-me__img hidden"
+			<img class="about-me__img about-me-hidden"
 				data-animation='{ "animation": "animation-jump", "delayInit": false, "delayTime": 500 }'
 				src="assets/images/adan-600-min.jpeg" />
 		</div>
-		<div class="about-me color-primary-lightest">
-			<h2 class="about-me__h2 hidden"
-				data-animation='{ "animation": "animation-fadeIn", "delayInit": false, "delayTime": 1000 }'>About Me</h2>
-			<p class="about-me__p hidden"
-				data-animation='{ "animation": "animation-fadeIn", "delayInit": false, "delayTime": 1800 }'>I’m a software
+		<div class="about-me color-primary-lightest about-me-hidden">
+			<h2 class="about-me__h2 about-me-hidden-div"
+				data-animation='{ "animation": "animation-fadeIn", "delayInit": false, "delayBetween": 500 }'>About Me</h2>
+			<p class="about-me__p about-me-hidden-div"
+				data-animation='{ "animation": "animation-fadeIn", "delayInit": false, "delayBetween": 500 }'>I’m a software
 				engineer at Pint Inc where I focus both on front-end and back-end
 				technologies! In addition to building websites I also enjoy making phone apps, video games and anything that
 				comes to mind!</p>
-			<h3 class="about-me__h3 hidden"
-				data-animation='{ "animation": "animation-fadeIn", "delayInit": false, "delayTime": 2600 }'>I'm Passionate About
+			<h3 class="about-me__h3 about-me-hidden-div"
+				data-animation='{ "animation": "animation-fadeIn", "delayInit": false, "delayBetween": 500 }'>I'm Passionate About
 			</h3>
 			<!-- Code snippets for site -->
 			<!-- terminal-text animation -->
-			<div class="terminal-text hidden"
-				data-animation='{ "animation": "animation-fadeIn", "delayInit": false, "delayTime": 3400, "terminalTextInit": true }'>
+			<div class="terminal-text about-me-hidden-div"
+				data-animation='{ "animation": "animation-fadeIn", "delayInit": false, "delayBetween": 500, "terminalTextInit": true }'>
 				<p>@adan></p>
 				<div id="terminal-text" class="terminal-text__typing"><span>life</span></div>
 			</div>
