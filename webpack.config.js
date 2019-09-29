@@ -44,7 +44,7 @@ module.exports = {
           {
             // Extracts the CSS into a separate file and uses the
             // defined configurations in the 'plugins' section
-            loader: MiniCssExtractPlugin.loader
+            loader: MiniCssExtractPlugin.loader,
           },
           {
             // Interprets CSS
