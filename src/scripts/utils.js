@@ -1,4 +1,4 @@
-const IsInViewport = (domElement) => {
+const IsInViewportBottom = (domElement) => {
 	const bounding = domElement.getBoundingClientRect();
 	// Only using bottom (my dom elements are too big.)
 	// uncomment to have full viewport.
@@ -7,6 +7,16 @@ const IsInViewport = (domElement) => {
 		// bounding.left >= 0 &&
 		bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight)
 		// bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
+	);
+}
+
+export const IsInViewport = (domElement) => {
+	const bounding = domElement.getBoundingClientRect();
+	return (
+		bounding.top >= 0 &&
+		bounding.left >= 0 &&
+		bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+		bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
 	);
 }
 
@@ -39,7 +49,7 @@ export const checkProjectScroll = (selfObj) =>
 		// get reference to parentDiv
 		const parentDiv = document.getElementById(selfObj.sectionId);
 		// checks if div is within viewport.
-		if (IsInViewport(parentDiv)) {
+		if (IsInViewportBottom(parentDiv)) {
 			// grab all instances of class
 			const elements = document.querySelectorAll('.' + selfObj.blocksClass);
 			// looping through all elements.
@@ -89,11 +99,3 @@ export const checkProjectScroll = (selfObj) =>
 	}
 
 
-export const AddStickyNav = (nav, headerHeight) =>
-	() => {
-		if (window.pageYOffset > headerHeight * 0.8) {
-			nav.classList.add('sticky');
-		} else {
-			nav.classList.remove('sticky');
-		}
-	}
