@@ -24,11 +24,12 @@ class TerminalText {
 		}
 		this.typeAnimation = () => {
 			this.textDOM.style.width = '0%';
-			const _TerminalText = this.textDOM.innerText.trim();
-			const _TerminalTextLength = _TerminalText.length;
+			const _TerminalTextLength = this.words[this.indexArray].length;
 			const _typeSpeed = this.options.typingSpeed / _TerminalTextLength;
 			const animation = setInterval( () => {
 				this.textDOM.style.width = 100 / _TerminalTextLength * this.counter + '%';
+				const num = (100 / _TerminalTextLength) * this.counter
+				// this.textDOM.style.width = '100%';
 				this.counter += 1;
 				if (this.counter > _TerminalTextLength) {
 					clearInterval(animation);
@@ -53,6 +54,7 @@ class TerminalText {
 					this.indexArray++;
 					const wordsLength = this.words.length;
 					const newIndex = this.options.random ? (Math.floor(Math.random() * this.words.length)) % wordsLength : (this.indexArray) % wordsLength;
+					this.indexArray = newIndex;
 					this.textDOM.innerText = this.words[newIndex];
 					this.counter = 0;
 					this.typeAnimation();
