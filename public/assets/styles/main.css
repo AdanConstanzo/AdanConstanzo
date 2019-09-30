@@ -1,33 +1,5 @@
-.debug {
-  background-color: orange; }
-
-body {
-  margin: 0;
-  font-family: 'Titillium Web', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace; }
-
-/* This is our hard reset! */
-*,
-*::after,
-*::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit; }
-
-html {
-  font-size: 62.5%;
-  scroll-behavior: smooth; }
-
-body {
-  box-sizing: border-box; }
-
-.hidden, .about-me-hidden, .about-me-hidden-div, .projects-hidden, .projects-hidden-div, .blogs-hidden, .blogs-hidden-div, .contact-hidden, .contact-hidden-div {
-  opacity: 0; }
-
+/*================ Break Points ================*/
+/*================ Colors ================*/
 /*================ Colors ================*/
 .color-primary {
   color: #2B2B2B; }
@@ -53,20 +25,41 @@ body {
 .bg-color-secondary {
   background-color: #11ABB0; }
 
-/* Footer */
-footer img:hover, footer a:hover img, .arrow-down img:hover {
-  filter: invert(47%) sepia(95%) saturate(655%) hue-rotate(140deg) brightness(91%) contrast(87%); }
+body {
+  margin: 0;
+  font-family: 'Titillium Web', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box; }
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace; }
+
+/* This is our hard reset! */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth; }
+
+.hidden, .about-me-hidden, .about-me-hidden-div, .projects-hidden, .projects-hidden-div, .blogs-hidden, .blogs-hidden-div, .contact-hidden, .contact-hidden-div {
+  opacity: 0; }
 
 /*================ Header ================*/
 header {
-  color: white;
+  color: #fff;
   /* background-image */
   background-image: url("http://stage.adanconstanzo.com/assets/images/header-image-dhd-2-min.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-color: #15151B;
+  background-color: #2B2B2B;
   width: 100%;
   height: 100vh;
   overflow-y: hidden; }
@@ -91,6 +84,9 @@ header .sticky {
   font-size: 5rem;
   backface-visibility: visible !important;
   animation: 1s linear 0s fadeInLeft; }
+  @media screen and (min-width: 768px) {
+    .header-info__h1 {
+      font-size: 6rem; } }
 
 .header-info__h2 {
   font-size: 3rem;
@@ -115,9 +111,67 @@ header .sticky {
   width: 5rem;
   z-index: 1; }
 
-/* header nav {
-  display: none;
-} */
+/*================ Footer ================*/
+/* Footer */
+footer img:hover, footer a:hover img, .arrow-down img:hover {
+  filter: invert(47%) sepia(95%) saturate(655%) hue-rotate(140deg) brightness(91%) contrast(87%); }
+
+.footer__icon__wrapper {
+  margin: 0 auto;
+  width: 90%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  text-align: center; }
+  @media screen and (min-width: 530px) {
+    .footer__icon__wrapper {
+      justify-content: space-evenly;
+      flex-direction: row; } }
+  @media screen and (min-width: 768px) {
+    .footer__icon__wrapper {
+      margin: 0 auto;
+      padding-bottom: 5rem;
+      width: 80vw;
+      display: flex;
+      justify-content: space-evenly;
+      text-align: center; } }
+  @media screen and (min-width: 1024px) {
+    .footer__icon__wrapper {
+      width: 60vw; } }
+
+.footer__icon__wrapper > div {
+  width: 100%; }
+  @media screen and (min-width: 530px) {
+    .footer__icon__wrapper > div {
+      width: 22rem; } }
+  @media screen and (min-width: 768px) {
+    .footer__icon__wrapper > div {
+      width: 22rem; } }
+
+.footer__icon__wrapper > div:not(:last-child) {
+  padding-bottom: 3rem; }
+  @media screen and (min-width: 530px) {
+    .footer__icon__wrapper > div:not(:last-child) {
+      padding-bottom: 0; } }
+
+.footer__icon__wrapper > div > a, .footer__icon__wrapper > div > a > img {
+  transition: 0.35s ease-in; }
+
+.footer__icon__wrapper a, .footer__icon__wrapper a:visited {
+  font-size: 1.5rem;
+  color: black;
+  text-decoration: none;
+  -webkit-transition: color 0.35s;
+  transition: color 0.35s; }
+  @media screen and (min-width: 768px) {
+    .footer__icon__wrapper a, .footer__icon__wrapper a:visited {
+      font-size: 2rem;
+      color: black; } }
+
+.footer__icon__wrapper a:hover {
+  color: #11ABB0; }
+
+/*================ Header ================*/
 .hamburger {
   position: fixed;
   right: 0;
@@ -299,31 +353,6 @@ nav {
 /*================ Section & Footer ================*/
 section, footer {
   padding: 3rem 0; }
-
-.footer__icon__wrapper {
-  margin: 0 auto;
-  width: 90%;
-  display: flex;
-  justify-content: space-evenly;
-  flex-direction: column;
-  text-align: center; }
-
-.footer__icon__wrapper > div {
-  width: 100%; }
-
-.footer__icon__wrapper > div:not(:last-child) {
-  padding-bottom: 3rem; }
-
-.footer__icon__wrapper > div > a, .footer__icon__wrapper > div > a > img {
-  transition: 0.35s ease-in; }
-
-.footer__icon__wrapper a, .footer__icon__wrapper a:visited {
-  font-size: 1.5rem;
-  color: black;
-  text-decoration: none; }
-
-.footer__icon__wrapper a:hover {
-  color: #11ABB0; }
 
 /*================ Animations ================*/
 @keyframes flipInX {
@@ -604,21 +633,8 @@ figure.effect-sadie:hover img {
   .projects__wrapper > div > img {
     width: 15rem; } }
 
-@media screen and (min-width: 530px) {
-  /*================ Footer 530 ================*/
-  .footer__icon__wrapper {
-    justify-content: space-evenly;
-    flex-direction: row; }
-  .footer__icon__wrapper > div {
-    width: 22rem; }
-  .footer__icon__wrapper > div:not(:last-child) {
-    padding-bottom: 0; } }
-
 /* tablet */
 @media screen and (min-width: 768px) {
-  /*================ Header 768 ================*/
-  .header-info__h1 {
-    font-size: 6rem; }
   /*================ About Me 768 ================*/
   .about-me__img--div {
     width: 30vw;
@@ -635,24 +651,6 @@ figure.effect-sadie:hover img {
     font-size: 2.2rem; }
   .grid figure p {
     font-size: 2rem; }
-  /*================ Footer 768 ================*/
-  .footer__icon__wrapper {
-    margin: 0 auto;
-    padding-bottom: 5rem;
-    width: 80vw;
-    display: flex;
-    justify-content: space-evenly;
-    text-align: center; }
-  .footer__icon__wrapper > div {
-    width: 22rem; }
-  .footer__icon__wrapper a, .footer__icon__wrapper a:visited {
-    font-size: 2rem;
-    color: black;
-    text-decoration: none;
-    -webkit-transition: color 0.35s;
-    transition: color 0.35s; }
-  .footer__icon__wrapper a:hover {
-    color: #11ABB0; }
   /*================ Terminal 768 ================*/
   .terminal-text {
     width: 400px; } }
@@ -699,9 +697,6 @@ figure.effect-sadie:hover img {
     flex-direction: row; }
   figure.effect-sadie h2 {
     font-size: 2.5rem; }
-  /*================ Footer 1024 ================*/
-  .footer__icon__wrapper {
-    width: 60vw; }
   /*================ Section & Footer 1024 ================*/
   section, footer {
     padding: 5rem 0; } }
