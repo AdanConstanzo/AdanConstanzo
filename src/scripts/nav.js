@@ -50,10 +50,11 @@ const animationEvent = () => {
 }
 
 const hideMobileNav = () => {
-	navbar.classList.add('nav-mobile-remove');
-	navBarBlock.classList.add('nav-block-remove');
-	navBarBlock.addEventListener('animationend', animationEvent);
-	
+	if (window.innerWidth < 1024) {
+		navbar.classList.add('nav-mobile-remove');
+		navBarBlock.classList.add('nav-block-remove');
+		navBarBlock.addEventListener('animationend', animationEvent);
+	}
 }
 
 const toggleMobileMenu = () => {
