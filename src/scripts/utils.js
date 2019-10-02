@@ -61,6 +61,7 @@ export const checkProjectScroll = (selfObj) =>
 				if (element.getAttribute('data-animation')) {
 					// standard animation bit.
 					animation = JSON.parse(element.getAttribute('data-animation'));
+					console.log(animation);
 					if (animation.delayInit === false) {
 						setTimeout(function () {
 							element.classList.remove(selfObj.blocksClass);
@@ -83,7 +84,7 @@ export const checkProjectScroll = (selfObj) =>
 								}
 								// adding animation.
 								element.children[num].classList.add(animationVal.animation);
-							}, 1000 + animation.delayBetween * j, j, animation); // increments time delay by 500ms
+							}, 500 + animation.delayBetween * j, j, animation); // increments time delay by 500ms
 						}
 						animation.delayInit = true;
 						element.children[j].setAttribute('data-animation', JSON.stringify(animation));
