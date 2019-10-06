@@ -239,7 +239,7 @@ header .sticky {
   cursor: pointer; }
 
 .arrow-down img {
-  transition: 0.3s ease-in-out; }
+  transition: 0.3s ease; }
 
 .arrow-down__icon {
   position: absolute;
