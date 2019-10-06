@@ -1,5 +1,6 @@
 import TerminalText from './TerminalText';
 import Nav from './nav';
+import Modal from './modal';
 import { smoothScroll, checkProjectScroll } from './utils';
 
 // Run this after DOM content loaded.
@@ -19,6 +20,7 @@ window.addEventListener("DOMContentLoaded", () => {
 	const textText1 = new TerminalText(texts, terminalText);
 	// Running init.
 	Nav();
+	Modal();
 
 	// variable instance of listener so we can reference to remove later.
 	const aboutMeEvent = { sectionId: 'about-me', blocksClass: 'about-me-hidden' }

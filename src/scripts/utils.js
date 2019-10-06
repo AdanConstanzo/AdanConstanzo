@@ -61,7 +61,6 @@ export const checkProjectScroll = (selfObj) =>
 				if (element.getAttribute('data-animation')) {
 					// standard animation bit.
 					animation = JSON.parse(element.getAttribute('data-animation'));
-					console.log(animation);
 					if (animation.delayInit === false) {
 						setTimeout(function () {
 							element.classList.remove(selfObj.blocksClass);
