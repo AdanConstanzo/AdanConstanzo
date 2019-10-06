@@ -1,0 +1,19 @@
+// generic imports.
+@import './vars.scss';
+@import './colors.scss';
+@import './reset.scss';
+
+// code used by multiple classes.
+@import './utils.scss';
+@import './animation.scss';
+@import './mixins.scss';
+
+// component css bits.
+@import './components/header.scss';
+@import './components/footer.scss';
+@import './components/nav.scss';
+@import './components/aboutMe.scss';
+@import './components/projects.scss';
+@import './components/blogs.scss';
+@import './components/TerminalText.scss';
+@import './components/modal.scss';

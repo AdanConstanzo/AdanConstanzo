@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Adan Constanzo, Full Stack Developer</title>
+	<meta name="description" content="I’m a software engineer at Pint Inc where I focus both on front-end and back-end technologies!" />
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">
+	<link rel="stylesheet" href="./assets/styles/main.css">
+	<!-- Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<!-- Header -->
+	<header id="home">
+		<div id="mobile-nav-block"></div>
+		<div id="hamburger" data-open="false" class="hamburger">
+			<div></div>
+			<div></div>
+		</div>
+		<nav id="nav">
+			<ul>
+				<li id="about-me-li" data-ref="about-me" >About Me</li>
+				<li id="projects-li" data-ref="projects" >Projects</li>
+				<li id="blogs-li" data-ref="blogs" >Blogs</li>
+				<li id="contact-li" data-ref="contact" >Contact</li>
+			</ul>
+		</nav>
+		<div class="header-info">
+			<h1 class="header-info__h1">I'm Adan Constanzo!</h1>
+			<h2 class="header-info__h2">Full-Stack Web Developer</h2>
+		</div>
+		<div id="arrow" class="arrow-down">
+			<img src="assets/images/Subtract.svg" alt="Arrow down image button." height="50px" width="50px" />
+		</div>
+	</header>
+	<!-- About Me -->
+	<section id="about-me" class="about-me__section bg-color-primary">
+		<div class="about-me__img--div">
+			<img class="about-me__img about-me-hidden"
+				data-animation='{ "animation": "animation-jump", "delayInit": false, "delayTime": 500 }'
+				src="assets/images/adan-600-min.jpeg" />
+		</div>
+		<div class="about-me color-primary-lightest about-me-hidden">
+			<h2 class="about-me__h2 about-me-hidden-div"
+				data-animation='{ "animation": "animation-fadeIn", "delayInit": false, "delayBetween": 500 }'>About Me</h2>
+			<p class="about-me__p about-me-hidden-div"
+				data-animation='{ "animation": "animation-fadeIn", "delayInit": false, "delayBetween": 500 }'>I’m a software
+				engineer at Pint Inc where I focus both on front-end and back-end
+				technologies! In addition to building websites I also enjoy making phone apps, video games and anything that
+				comes to mind!</p>
+			<h3 class="about-me__h3 about-me-hidden-div"
+				data-animation='{ "animation": "animation-fadeIn", "delayInit": false, "delayBetween": 500 }'>I'm Passionate About
+			</h3>
+			<!-- Code snippets for site -->
+			<!-- terminal-text animation -->
+			<div id="test" class="terminal-text about-me-hidden-div"
+				data-animation='{ "animation": "animation-fadeIn", "delayInit": false, "delayBetween": 500, "terminalTextInit": true }'>
+				<p>@adan></p>
+				<div id="terminal-text" class="terminal-text__typing"><span>life</span></div>
+			</div>
+			<!-- !terminal-text animation -->
+		</div>
+	</section>
+	<!-- Projects -->
+	<section id="projects" class="bg-color-primary-light">
+		<h2 class="projects__h2 color-primary projects-hidden"
+			data-animation='{ "animation": "animation-fadeIn", "delayInit": false, "delayTime": 250 }'>Check Out Some Of My
+			Projects</h2>
+		<div class="projects__wrapper projects-hidden">
+			<div class="projects-hidden-div"
+				data-modal="pokemon"
+				data-animation='{ "animation": "animation-fadeIn", "delayInit": false, "delayBetween": 350 }'>
+				<img src="assets/images/pokeball-min.png" alt="GottaTCG" />
+			</div>
+			<div class="projects-hidden-div"
+				data-modal="jello"
+				data-animation='{ "animation": "animation-fadeIn", "delayInit": false, "delayBetween": 350 }'>
+				<img src="assets/images/Jello-min.png" alt="Jello Hackathon" />
+			</div>
+			<div class="projects-hidden-div"
+				data-modal="dijkstra"
+				data-animation='{ "animation": "animation-fadeIn", "delayInit": false, "delayBetween": 350 }'>
+				<img src="assets/images/airplane-min.png" alt="Dijkstra Algorithm" />
+			</div>
+			<div class="projects-hidden-div"
+				data-modal="song"
+				data-animation='{ "animation": "animation-fadeIn", "delayInit": false, "delayBetween": 350 }'>
+				<img src="assets/images/song-game-2-512-min.png" alt="Song App" />
+			</div>
+		</div>
+	</section>
+	<!-- Blogs -->
+	<section id="blogs" class="content bg-color-primary blogs">
+		<h2 class="blogs__h2 color-primary-light blogs-hidden" data-animation='{ "animation": "animation-fadeIn", "delayInit": false, "delayTime": 250 }'>Check Out Some Of My Blogs</h2>
+		<div class="grid blogs-hidden">
+			<figure class="effect-sadie blogs-hidden-div" data-animation='{ "animation": "animation-fadeIn", "delayInit": false, "delayBetween": 500 }'122>
+				<img src="assets/images/the-feww.png" alt="the f.e.w.w." />
+				<figcaption>
+					<h2>Senior Design Project:<br><span>The F.E.W.W</span></h2>
+					<p>My CSULA Senior Design Project: The F.E.W.W</p>
+					<a href="http://blog.adanconstanzo.com/blog/sdp_the_feww" target="_blank" >View more</a>
+				</figcaption>
+			</figure>
+			<figure class="effect-sadie blogs-hidden-div" data-animation='{ "animation": "animation-fadeIn", "delayInit": false, "delayBetween": 500 }'122>
+				<img src="assets/images/android-min.jpg" alt="img14" />
+				<figcaption>
+					<h2>Android App Development<br><span>Never Have I Ever</span></h2>
+					<p>Learning android development!</p>
+					<a href="http://blog.adanconstanzo.com/blog/neverhaveiever" target="_blank" >View more</a>
+				</figcaption>
+			</figure>
+		</div>
+	</section>
+	<!-- Footer -->
+	<footer id="contact" class="bg-color-primary-light">
+		<h2 class="footer__h2 color-primary" data-animation='{ "animation": "animation-fadeIn", "delayInit": false }'>
+			Contact Me!</h2>
+		<div class="footer__icon__wrapper">
+			<div>
+				<a href="https://github.com/adanconstanzo">
+					<img src="assets/images/git.svg" alt="triangle with all three sides equal" height="50px" width="50px" />
+					<br>AdanConstanzo
+				</a>
+			</div>
+			<div>
+				<a href="https://www.linkedin.com/in/adan-constanzo/">
+					<img src="assets/images/linkin.svg" alt="triangle with all three sides equal" height="50px" width="50px" />
+					<br>adan-constanzo
+				</a>
+			</div>
+			<div>
+				<a href="mailto:aconstanzo@gmail.com">
+					<img src="assets/images/mail.svg" alt="triangle with all three sides equal" height="50px" width="50px" />
+					<br>aconstanzo@gmail.com
+				</a>
+			</div>
+		</div>
+	</footer>
+	<!-- Modals -->
+	<div id="pokemon" class="modal">
+		<div class="modal__content">
+			<div class="modal__content__header" >
+				<h2>Gotta TCG</h2>
+			</div>
+			<div class="modal__content__body" >
+				<img class="modal__content__body__image" src="assets/images/m_ptcg-min.jpg" alt="PTCG Image" />
+				<div class="modal__content__body__tech" >
+					<div>
+						<img class="modal__content__body__codeImage" src="assets/images/coding-icon.svg" alt="Coding sign" height="50px" width="50px" />
+					</div>
+					<div class="color-primary-lightest modal__content__body__tech__description" >
+						<h3>Pokemon trading card game collection manage and deck builder</h3>
+						<p>Technologies used: NodeJS, ReactJS, Redux, MongoDB, Python</p>
+					</div>
+				</div>
+			</div>
+			<div class="modal__content__footer" >
+				<a href="http://blog.adanconstanzo.com/blog/project_gtcg" target="_blank" >Check out the blog post</a>
+			</div>
+		</div>
+	</div>
+	<div id="jello" class="modal">
+		<div class="modal__content">
+			<div class="modal__content__header" >
+				<h2>Jell0</h2>
+			</div>
+			<div class="modal__content__body" >
+				<img class="modal__content__body__image" src="assets/images/jello-min.jpg" alt="PTCG Image" />
+				<div class="modal__content__body__tech" >
+					<div>
+						<img class="modal__content__body__codeImage" src="assets/images/coding-icon.svg" alt="Coding sign" height="50px" width="50px" />
+					</div>
+					<div class="color-primary-lightest modal__content__body__tech__description" >
+						<h3>A LA Hackathon puzzle grid based game constructed in 36 hours.</h3>
+						<p>Technologies used: Javascript, CSS3</p>
+					</div>
+				</div>
+			</div>
+			<div class="modal__content__footer" >
+				<a href="http://projects.jell0.adanconstanzo.com/" target="_blank" >Check out the live site</a>
+				<a href="http://blog.adanconstanzo.com/blog/projects_jell0" target="_blank"  >Check out the blog post</a>
+			</div>
+		</div>	
+	</div>
+	<div id="dijkstra" class="modal">
+		<div class="modal__content">
+			<div class="modal__content__header" >
+				<h2>Dijkstra's Airports</h2>
+			</div>
+			<div class="modal__content__body" >
+				<img class="modal__content__body__image" src="assets/images/m_disjkstra-min.jpg" alt="Dijkstra Mpas Image" />
+				<div class="modal__content__body__tech" >
+					<div>
+						<img class="modal__content__body__codeImage" src="assets/images/coding-icon.svg" alt="Coding sign" height="50px" width="50px" />
+					</div>
+					<div class="color-primary-lightest modal__content__body__tech__description" >
+						<h3>Dijkstra's Algorithm to find the shortest path between two airports.</h3>
+						<p>Technologies Used: NodeJS, AngularJS, MongoDB, JavaScript</p>
+					</div>
+				</div>
+			</div>
+			<div class="modal__content__footer" >
+				<a href="http://projects.dijkstra.adanconstanzo.com/#/" target="_blank" >Check out the live site</a>
+				<a href="http://blog.adanconstanzo.com/blog/projects_dijkstra" target="_blank" >Check out the blog post</a>
+			</div>
+		</div>	
+	</div>
+	<div id="song" class="modal">
+		<div class="modal__content">
+			<div class="modal__content__header" >
+				<h2>Music Guessing Game</h2>
+			</div>
+			<div class="modal__content__body" >
+				<img class="modal__content__body__image" src="assets/images/m_song_app-min.jpg" alt="Music Guessing Game" />
+				<div class="modal__content__body__tech" >
+					<div>
+						<img class="modal__content__body__codeImage" src="assets/images/coding-icon.svg" alt="Coding sign" height="50px" width="50px" />
+					</div>
+					<div class="color-primary-lightest modal__content__body__tech__description" >
+						<h3>A small music guessing game with an audio visualizer and heatlh system.</h3>
+						<p>Technologies Used: AngularJS, Web Audio API, ProcessingJS, JavaScript, jQuery</p>
+					</div>
+				</div>
+			</div>
+			<div class="modal__content__footer" >
+				<a href="http://projects.songapp.adanconstanzo.com/" target="_blank" >Check out the live site</a>
+				<a href="http://blog.adanconstanzo.com/blog/project_song_guessing_game" target="_blank" >Check out the blog post</a>
+			</div>
+		</div>
+	</div>
+	<script src="./assets/scripts/bundle.js"></script>
+</body>
+
+</html>
