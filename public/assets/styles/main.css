@@ -820,7 +820,10 @@ body.non-mobile figure.effect-sadie:hover img {
       color: white;
       font-weight: bold;
       display: inline-block;
-      font-size: 1.5rem; }
+      font-size: 1.5rem;
+      transition: box-shadow ease 0.5s; }
+      .modal__content .modal__content__footer a:hover {
+        box-shadow: inset 0px 0px 0px 5px #11ABB0; }
 
 .modal--open {
   opacity: 1;

@@ -91,6 +91,11 @@
 			font-weight: bold;
 			display: inline-block;
 			font-size: 1.5rem;
+			transition: box-shadow ease 0.5s;
+			&:hover {
+				// fake border trick!
+				box-shadow: inset 0px 0px 0px 5px #11ABB0;
+			}
 		}
 	}
 }
