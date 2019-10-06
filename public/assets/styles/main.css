@@ -766,7 +766,8 @@ figure.effect-sadie:hover img {
   max-width: 70rem;
   background-color: #EBEEEE;
   padding: 2rem;
-  margin: 5vh auto; }
+  margin: 5vh auto;
+  border-radius: 1rem; }
   .modal__content .modal__content__header h2 {
     font-size: 2.5rem;
     text-align: center; }
